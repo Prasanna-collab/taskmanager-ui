@@ -1,0 +1,11 @@
+/* Custom styles for ReadTask component */
+
+.task-list {
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+  
+  .actions {
+    margin-left: auto;
+  }
+  
