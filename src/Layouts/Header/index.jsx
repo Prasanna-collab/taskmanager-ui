@@ -1,33 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import './Header.css'; // Import the external CSS file
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "80px", // Adjusted height
-        position: "fixed",
-        top: "0",
-        left: "0",
-        right: "0",
-        backgroundColor: "#343a40", // Dark background color
-        color: "#fff", // Text color
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "0 20px", // Added padding
-        zIndex: "999", // Added z-index
-      }}
-    >
-      <h3 style={{ margin: "0" }}>Task Manager</h3> {/* Changed title */}
-      <div>
-        <Link to="/profile" style={{ marginRight: "20px", color: "#fff" }}>
-          Profile {/* Added profile button */}
-        </Link>
-        <Link to="/" style={{ color: "#fff" }}>
-          Logout {/* Added logout button */}
-        </Link>
+    <div className="header-container">
+      <h3 style={{textAlign:"center"}}>Task Manager</h3>
+      <div className={`links-container ${showMenu ? 'show-menu' : ''}`}>
+        <Link to="/add">Add Task</Link>
+        <Link to="/tasks">All Tasks</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/">Logout</Link>
+      </div>
+      <div className={`menu-icon ${showMenu ? 'show' : ''}`} onClick={toggleMenu}>
+        <FontAwesomeIcon icon={faBars} />
       </div>
     </div>
   );

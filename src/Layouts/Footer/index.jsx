@@ -5,7 +5,7 @@ const Footer = () => {
     <div
       style={{
         width: "100%",
-        height: "80px", // Adjusted height
+        height: "50px", // Adjusted height
         position: "fixed",
         bottom: "0",
         left: "0",
